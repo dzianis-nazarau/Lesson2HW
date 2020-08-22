@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-// добавляет правильное окончание к колличеству программистов
+// добавляет правильное окончание к введеному колличеству программистов
 
 public class Ex7 {
     public static void main(String[] args) throws IOException {
@@ -17,21 +17,28 @@ public class Ex7 {
 
             switch (a % 10) {
                 case 1:
-                    if(a == 11) {
-                        end = "ов";
-                    }
-                    break;
                 case 2:
                 case 3:
                 case 4:
-                    end = "a";
+                    switch (a % 100) {
+                        case 1:
+                            break;
+                        case 11:
+                        case 12:
+                        case 13:
+                        case 14:
+                            end = "ов";
+                            break;
+                        default:
+                            end = "a";
+                    }
                     break;
-                case 0:
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                 case 9:
+                case 0:
                     end = "ов";
                     break;
             }
